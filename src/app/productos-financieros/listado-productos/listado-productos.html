@@ -1,0 +1,80 @@
+<div class="cabecera-botones">
+  <app-confirmacion-error></app-confirmacion-error>
+  <div>
+    <input (input)="buscar($event)" type="text" placeholder="Search..." class="buscar-input" />
+  </div>
+  <app-agregar></app-agregar>
+</div>
+
+<div class="contenedor-tabla">
+  <table class="tabla-productos">
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre del producto</th>
+        <th>Descripción</th>
+        <th>Fecha de liberación</th>
+        <th>Fecha de reestructuración</th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (producto of productosPaginados; track producto.id) {
+      <tr>
+        <td>
+          <div class="logo">
+            <img src={{producto.logo}} alt="Logo Producto">
+          </div>
+        </td>
+        <td>{{producto.name}}</td>
+        <td>{{producto.description}}</td>
+        <td>{{producto.fechaEntrega | date:'yyyy-MM-dd'}}</td>
+        <td>{{producto.fechaRevision | date:'yyyy-MM-dd'}}</td>
+        <td>
+          <button (click)="abrirMenu(producto, $event)">⋮</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+    
+  </table>
+</div>
+<div class="footer-tabla">
+  <div class="numero-filas">
+    {{listaProductos.length}} Resultados
+  </div>
+
+  <div class="paginacion">
+    @for (pagina of [].constructor(totalPaginas()); track $index; let i = $index) {
+    <button (click)="irAPagina(i+1)" [class.activa]="paginaActual === i+1">
+      {{i+1}}
+    </button>
+    }
+
+  </div>
+
+  <div>
+    <select (change)="cambiarFilas($event)">
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+</div>
+<!--modal drop-->
+@if (mostrarMenu) {
+<div class="overlay" (click)="cerrarMenu()">
+  <div class="dropdown" [style.left.px]="posX" [style.top.px]="posY" (click)="$event.stopPropagation()">
+    <button (click)="editar()">Editar</button>
+    <button (click)="abrirModalEliminar()">Eliminar</button>
+  </div>
+
+</div>
+}
+<!--modal eliminar-->
+@if (mostrarModal) {
+<app-confirmacion-modal titulo="" [mensaje]="'¿Estas seguro de eliminar el producto ' + productoAEliminar.name + '?'"
+  (confirmar)="eliminarProducto()" (cancelar)="cerrarModal()">
+</app-confirmacion-modal>
+}

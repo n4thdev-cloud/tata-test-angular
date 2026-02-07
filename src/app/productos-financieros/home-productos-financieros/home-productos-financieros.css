@@ -1,0 +1,25 @@
+.formulario {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(118, 118, 118, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-agregar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60vw;
+    height: 60vh;
+    background-color: white;
+    padding: 3rem;
+}
+.listado-productos {
+    margin-top: 1rem;
+    width: 60vw;
+    height: 50vh;
+    background: white;
+}

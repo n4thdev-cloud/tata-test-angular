@@ -1,0 +1,123 @@
+.cabecera-botones {
+    width: 60vw;
+    height: 10vh;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buscar-input {
+    width: 15vw;
+    height: auto;
+    font-size: 12px;
+    padding: 12px 8px;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+.contenedor-tabla {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tabla-productos thead th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
+}
+thead {
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 13px;
+}
+th,
+td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+tr:hover {
+  background: #f3f4f6;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #374151;
+}
+.logo img {
+  width: 40px;
+  height: auto;
+}
+.tres-puntos {
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+.footer-tabla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.paginacion button {
+  margin: 0 4px;
+  border: none;
+  background: #eee;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.paginacion .activa {
+  background: #333;
+  color: white;
+}
+select {
+  padding: 4px 8px;
+}
+.numero-filas {
+  padding: 1rem;
+  margin: 1rem;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 1000;
+}
+.dropdown {
+  position: fixed;
+  top: 30vh;   
+  right: 10vw;  
+  width: 140px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  padding: 6px 0;
+}
+.dropdown button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+.dropdown button:hover {
+  background: #f3f3f3;
+}

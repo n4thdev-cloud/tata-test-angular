@@ -1,0 +1,10 @@
+@if (toastService.toast().visible) {
+  <div class="toast"
+       [class.success]="toastService.toast().type === 'success'"
+       [class.error]="toastService.toast().type === 'error'">
+    {{ toastService.toast().message }}
+  </div>
+}
+
+
+

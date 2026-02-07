@@ -1,0 +1,120 @@
+.formulario {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(118, 118, 118, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-agregar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60vw;
+    height: 60vh;
+    background-color: white;
+}
+
+.formulario-cabecera {
+    margin-top: 1rem;
+    width: 60vw;
+    height: 10vh;
+    text-align: center;
+    border-bottom: 4px solid gray;
+}
+
+.formulario-cuerpo {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    width: 60vw;
+    height: 10vh;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-izquierda {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 5%;
+    width: 25vw;
+}
+
+.formulario-span {
+    margin: 5px;
+}
+
+.input-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 5%;
+    width: 25vw;
+}
+
+.formulario-input {
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    padding: 12px 8px;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+
+
+.formulario-input.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.15);
+}
+
+.formulario-input.ng-valid.ng-touched {
+  border-color: #2ecc71;
+}
+
+
+.formulario-botones {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    width: 60vw;
+    height: 10vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.boton-reiniciar {
+    width: 100px;
+    height: 40px;
+    background-color: rgba(118, 118, 118, 0.2);
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 1.5rem 1rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-enviar {
+    width: 100px;
+    height: 40px;
+    background-color: yellow;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 1.5rem 1rem;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

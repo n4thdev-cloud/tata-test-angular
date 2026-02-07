@@ -1,0 +1,93 @@
+<form [formGroup]="form" class="formulario">
+  <app-confirmacion-error></app-confirmacion-error>
+  <div class="formulario-agregar">
+    <div class="formulario-cabecera">
+      <h1>Formulario de Edición</h1>
+    </div>
+
+    @let f = form.controls;
+
+    <!-- ID y Nombre -->
+    <div class="formulario-cuerpo">
+      <div class="input-izquierda">
+        <span class="formulario-span">ID</span>
+        <input formControlName="id" type="text" placeholder="ID" class="formulario-input" />
+
+        @if (f.id.touched && f.id.errors) {
+          <small>@if (f.id.errors['required']) { El id es requerido }</small>
+          <small>@if (f.id.errors['minlength']) { Mínimo 3 caracteres }</small>
+          <small>@if (f.id.errors['maxlength']) { Máximo 10 caracteres }</small>
+          <small>@if (f.id.errors['idExiste']) { Este id ya existe }</small>
+        }
+      </div>
+
+      <div class="input-derecha">
+        <span class="formulario-span">Nombre</span>
+        <input formControlName="name" type="text" placeholder="Tarjeta Crédito" class="formulario-input" />
+
+        @if (f.name.touched && f.name.errors) {
+          <small>@if (f.name.errors['required']) { El nombre es requerido }</small>
+          <small>@if (f.name.errors['minlength']) { Mínimo 5 caracteres }</small>
+          <small>@if (f.name.errors['maxlength']) { Máximo 100 caracteres }</small>
+        }
+      </div>
+    </div>
+
+    <!-- Descripción y Logo -->
+    <div class="formulario-cuerpo">
+      <div class="input-izquierda">
+        <span class="formulario-span">Descripción</span>
+        <input formControlName="description" type="text" placeholder="Descripción" class="formulario-input" />
+
+        @if (f.description.touched && f.description.errors) {
+          <small>@if (f.description.errors['required']) { La descripción es requerida }</small>
+          <small>@if (f.description.errors['minlength']) { Mínimo 10 caracteres }</small>
+          <small>@if (f.description.errors['maxlength']) { Máximo 200 caracteres }</small>
+        }
+      </div>
+
+      <div class="input-derecha">
+        <span class="formulario-span">Logo</span>
+        <input formControlName="logo" type="text" placeholder="Logo" class="formulario-input" />
+
+        @if (f.logo.touched && f.logo.errors) {
+          <small>@if (f.logo.errors['required']) { El logo es requerido }</small>
+        }
+      </div>
+    </div>
+
+    <!-- Fechas -->
+    <div class="formulario-cuerpo">
+      <div class="input-izquierda">
+        <span class="formulario-span">Fecha Liberación</span>
+        <input formControlName="date_release" type="date" class="formulario-input" />
+
+        @if (f.date_release.touched && f.date_release.errors) {
+          <small>@if (f.date_release.errors['required']) { La fecha es requerida }</small>
+          <small>@if (f.date_release.errors['fechaPasada']) { No puede ser menor a hoy }</small>
+        }
+      </div>
+
+      <div class="input-derecha">
+        <span class="formulario-span">Fecha Revisión</span>
+        <input formControlName="date_revision" type="date" class="formulario-input" />
+
+        @if (f.date_revision.touched && f.date_revision.errors) {
+          <small>@if (f.date_revision.errors['required']) { La fecha es requerida }</small>
+          <small>@if (f.date_revision.errors['fechaIncorrecta']) { Debe ser exactamente un año posterior }</small>
+        }
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="formulario-botones">
+      <button type="button" class="boton-reiniciar" (click)="form.reset()">
+        Reiniciar
+      </button>
+
+      <button type="submit" class="boton-enviar" (click)="editarProducto()" [disabled]="form.invalid" >
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>
